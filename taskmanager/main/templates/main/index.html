@@ -1,0 +1,19 @@
+{% extends 'main/default.html' %}
+
+{% block title%}
+Главная страница
+{% endblock %}
+
+{% block content%}
+    {% if quiz%}
+        <h4>Добро пожаловать!</h4>
+        {% for item in quiz%}
+            <div class = "alert alert-warning mt-2">
+                <h2>{{item.name}}</h2>
+                <p3>{{item.feedback}}</p3><br>
+            </div>
+        {%endfor%}
+    {%else%}
+        <h4>Нет отзывов!</h4>
+    {% endif%}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'main/default.html' %}
+
+{% block title%}
+Страница авторизациии
+{% endblock %}
+
+{% block content%}
+    <form method="post">
+        <h4>Напишите свой отзыв</h4>
+        {% csrf_token %}
+        {{form.name}}<br>
+        {{form.feedback}}<br>
+        <button type = "sumbit" class="btn btn-success">Опубликовать</button>
+    </form>
+{% endblock %}
