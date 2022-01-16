@@ -1,7 +1,6 @@
 from .models import Quiz
 from django.forms import ModelForm , TextInput , Textarea
 
-
 class QuizForm(ModelForm):
     class Meta:
         model = Quiz
@@ -14,7 +13,8 @@ class QuizForm(ModelForm):
             "feedback": Textarea(attrs={
                 'placeholder': 'Напишите отзыв',
                 'class': "form-control",
-
             })
-
         }
+
+
+

@@ -3,10 +3,25 @@
 {% block title%}
 Главная страница
 {% endblock %}
+{%block buttons%}
+    {%if user.is_authenticated %}
+        <li class="nav-item"><a href="/create" class="nav-link active" aria-current="page">Написать отзыв</a></li>
+        <li class="nav-item"><a href="accounts/logout" class="nav-link danger">Logout</a></li>
+    {%else%}
+        <li class="nav-item"><a href="accounts/login" class="nav-link active" aria-current="page">Login</a></li>
+        <li class="nav-item"><a href="accounts/signup" class="nav-link danger">Sign up</a></li>
+    {%endif%}
+
+
+{%endblock%}
 
 {% block content%}
+    {% if user.is_authenticated%}
+        <h4>Hi {{user.username}}!</h4>
+    {%else%}
+        <h4>You not logged!</h4>
+    {%endif%}
     {% if quiz%}
-        <h4>Добро пожаловать!</h4>
         {% for item in quiz%}
             <div class = "alert alert-warning mt-2">
                 <h2>{{item.name}}</h2>

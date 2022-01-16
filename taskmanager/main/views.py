@@ -1,14 +1,13 @@
-from django.shortcuts import render , redirect , HttpResponse
+from django.shortcuts import render , redirect
 from .models import Quiz
 from .forms import QuizForm
-# Create your views here.
 
 
-def show(request):
+def show_main(request):
     quiz = Quiz.objects.order_by('id')
     return render(request , "main/index.html" ,{'quiz' : quiz})
 
-def show_secret(request):
+def show_create(request):
     if request.method == 'POST':
         form = QuizForm(request.POST)
         if form.is_valid():
